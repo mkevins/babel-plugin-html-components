@@ -1,5 +1,6 @@
 module.exports = function({ types }) {
   return {
+    name: 'HTML Elements Transformer',
     visitor: {
       JSXIdentifier(path, start) {
         if (path.node.name !== 'div') {
