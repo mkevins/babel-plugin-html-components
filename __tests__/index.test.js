@@ -39,5 +39,31 @@ describe('plugin', () => {
 
     expect(code).toMatchSnapshot();
   });
+
+  it('does not modify other components', () => {
+    var source = `
+      class MyComponent extends Component {
+        render() {
+          return (
+            <>
+              <MyThing className={ 'outer' }>
+                <div className={ 'styled' } />
+              </MyThing>
+              <div className={ 'outer' }>
+                <MyThing className={ 'inner' } />
+              </div>
+            </>
+          );
+        }
+      }
+    `;
+
+    const {code} = babel.transform(source, {plugins: [
+      '@babel/plugin-syntax-jsx',
+      plugin
+    ]});
+
+    expect(code).toMatchSnapshot();
+  });
 });
 

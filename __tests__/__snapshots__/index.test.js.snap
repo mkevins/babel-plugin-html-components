@@ -1,5 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`plugin does not modify other components 1`] = `
+"class MyComponent extends Component {
+  render() {
+    return <>
+              <MyThing className={'outer'}>
+                <Div className={'styled'} />
+              </MyThing>
+              <Div className={'outer'}>
+                <MyThing className={'inner'} />
+              </Div>
+            </>;
+  }
+
+}"
+`;
+
 exports[`plugin transforms div to Div 1`] = `
 "class MyComponent extends Component {
   render() {
