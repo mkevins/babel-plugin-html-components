@@ -1,5 +1,6 @@
 {
   "name": "html-components",
+  "private": true,
   "version": "0.0.1",
   "description": "Babel plugin to transform html elements into class components.",
   "main": "src/index.js",
