@@ -1,6 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`works 1`] = `
-"
-babel === cool;"
+exports[`plugin transforms div to Div 1`] = `
+"class MyComponent extends Component {
+  render() {
+    return <Div className={'styled'} />;
+  }
+
+}"
 `;

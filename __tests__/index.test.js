@@ -1,11 +1,22 @@
-const babel = require('babel-core');
+const babel = require('@babel/core');
 const plugin = require('../src/');
 
-var example = `
-foo === bar;
-`;
+describe('plugin', () => {
+  it('transforms div to Div', () => {
+    let source = `
+      class MyComponent extends Component {
+        render() {
+          return <div className={ 'styled' } />;
+        }
+      }
+    `;
 
-it('works', () => {
-  const {code} = babel.transform(example, {plugins: [plugin]});
-  expect(code).toMatchSnapshot();
+    const {code} = babel.transform(source, {plugins: [
+      '@babel/plugin-syntax-jsx',
+      plugin
+    ]});
+
+    expect(code).toMatchSnapshot();
+  });
 });
+

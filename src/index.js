@@ -1,15 +1,13 @@
 module.exports = function({ types }) {
   return {
     visitor: {
-      Identifier(path, start) {},
-      BinaryExpression(path) {
-        if (path.node.operator !== '===') {
+      JSXIdentifier(path, start) {
+        if (path.node.name !== 'div') {
           return;
         }
 
-        path.node.left = types.identifier('babel');
-        path.node.right = types.identifier('cool');
-      }
+        path.node.name = 'Div';
+      },
     }
   }
 }
