@@ -8,3 +8,14 @@ exports[`plugin transforms div to Div 1`] = `
 
 }"
 `;
+
+exports[`plugin works with nested elements 1`] = `
+"class MyComponent extends Component {
+  render() {
+    return <Div className={'outer'}>
+              <Div className={'styled'} />
+            </Div>;
+  }
+
+}"
+`;
