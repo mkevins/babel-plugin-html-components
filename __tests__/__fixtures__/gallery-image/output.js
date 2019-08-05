@@ -128,7 +128,7 @@ class GalleryImage extends Component {
       'is-selected': isSelected,
       'is-transient': isBlobURL(url)
     });
-    return <figure className={className}>
+    return <Figure className={className}>
 				{href ? <a href={href}>{img}</a> : img}
 				<Div className="block-library-gallery-item__move-menu">
 					<IconButton icon="arrow-left" onClick={isFirstItem ? undefined : onMoveBackward} className="blocks-gallery-item__move-backward" label={__('Move Image Backward')} aria-disabled={isFirstItem} disabled={!isSelected} />
@@ -140,7 +140,7 @@ class GalleryImage extends Component {
 				<RichText tagName="figcaption" placeholder={isSelected ? __('Write caption…') : null} value={caption} isSelected={this.state.captionSelected} onChange={newCaption => setAttributes({
         caption: newCaption
       })} unstableOnFocus={this.onSelectCaption} inlineToolbar />
-			</figure>;
+			</Figure>;
   }
 
 }
