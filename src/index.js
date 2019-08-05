@@ -8,6 +8,9 @@ module.exports = function({ types }) {
 
         path.node.name = 'Div';
       },
+    },
+    manipulateOptions(options, parserOptions) {
+      parserOptions.plugins.push('jsx');
     }
   }
 }

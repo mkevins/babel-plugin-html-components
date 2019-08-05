@@ -11,16 +11,13 @@ describe('plugin', () => {
       }
     `;
 
-    const {code} = babel.transform(source, {plugins: [
-      '@babel/plugin-syntax-jsx',
-      plugin
-    ]});
+    const {code} = babel.transform(source, {plugins: [ plugin ]});
 
     expect(code).toMatchSnapshot();
   });
 
   it('works with nested elements', () => {
-    var source = `
+    let source = `
       class MyComponent extends Component {
         render() {
           return (
@@ -32,16 +29,13 @@ describe('plugin', () => {
       }
     `;
 
-    const {code} = babel.transform(source, {plugins: [
-      '@babel/plugin-syntax-jsx',
-      plugin
-    ]});
+    const {code} = babel.transform(source, {plugins: [ plugin ]});
 
     expect(code).toMatchSnapshot();
   });
 
   it('does not modify other components', () => {
-    var source = `
+    let source = `
       class MyComponent extends Component {
         render() {
           return (
@@ -58,10 +52,7 @@ describe('plugin', () => {
       }
     `;
 
-    const {code} = babel.transform(source, {plugins: [
-      '@babel/plugin-syntax-jsx',
-      plugin
-    ]});
+    const {code} = babel.transform(source, {plugins: [ plugin ]});
 
     expect(code).toMatchSnapshot();
   });
