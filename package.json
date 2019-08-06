@@ -1,5 +1,5 @@
 {
-  "name": "html-components",
+  "name": "babel-plugin-html-components",
   "private": true,
   "version": "0.0.1",
   "description": "Babel plugin to transform html elements into class components.",
