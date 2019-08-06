@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`plugin does not modify other components 1`] = `
-"class MyComponent extends Component {
+"import { Div } from \\"@wordpress/element\\";
+
+class MyComponent extends Component {
   render() {
     return <>
               <MyThing className={'outer'}>
@@ -17,7 +19,9 @@ exports[`plugin does not modify other components 1`] = `
 `;
 
 exports[`plugin transforms div to Div 1`] = `
-"class MyComponent extends Component {
+"import { Div } from \\"@wordpress/element\\";
+
+class MyComponent extends Component {
   render() {
     return <Div className={'styled'} />;
   }
@@ -26,7 +30,9 @@ exports[`plugin transforms div to Div 1`] = `
 `;
 
 exports[`plugin works with nested elements 1`] = `
-"class MyComponent extends Component {
+"import { Div } from \\"@wordpress/element\\";
+
+class MyComponent extends Component {
   render() {
     return <Div className={'outer'}>
               <Div className={'styled'} />

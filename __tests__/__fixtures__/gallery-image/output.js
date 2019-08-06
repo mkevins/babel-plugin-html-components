@@ -1,3 +1,6 @@
+import { Div } from "@wordpress/element";
+import { Figure } from "@wordpress/element";
+
 /**
  * External dependencies
  */
