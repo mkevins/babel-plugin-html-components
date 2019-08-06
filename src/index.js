@@ -4,6 +4,10 @@ const { default: template }= require('@babel/template');
 const defaultTransforms = {
   'div': 'Div',
   'figure': 'Figure',
+  'img': 'Img',
+  'ul': 'Ul',
+  'li': 'Li',
+  'figcaption': 'Figcaption',
 };
 
 // default source path
