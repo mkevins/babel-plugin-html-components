@@ -3,6 +3,7 @@ const { default: template }= require('@babel/template');
 // some default transforms
 const defaultTransforms = {
   'div': 'Div',
+  'span': 'Span',
   'figure': 'Figure',
   'img': 'Img',
   'ul': 'Ul',
@@ -65,6 +66,43 @@ module.exports = function({ types }) {
 
         // rename jsx identifier according to transform
         path.node.name = componentName;
+      },
+      JSXText(path, state) {
+        // prevent infinite loop
+        if (path.node.isWrapped) {
+          return;
+        }
+
+        const innerText = path.node.value;
+
+        // ignore space-only content
+        if (!innerText.match(/\S/)) {
+          return;
+        }
+
+        const { file } = state;
+        const jsxText = types.JSXText(innerText);
+
+        jsxText.isWrapped = true;
+
+        path.replaceWith(
+          types.JSXElement(
+            types.JSXOpeningElement(
+              types.JSXIdentifier('Text'),
+              [],
+              false
+            ),
+            types.JSXClosingElement(
+              types.JSXIdentifier('Text')
+            ),
+            [
+              jsxText
+            ]
+          )
+        )
+
+        // inject, if necessary
+        injectImport(file, 'Text', 'react-native');
       },
     },
     // use jsx syntax for parsing

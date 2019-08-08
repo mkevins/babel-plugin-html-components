@@ -1,5 +1,6 @@
 import { Div } from "@wordpress/element";
 import { Figure } from "@wordpress/element";
+import { Img } from "@wordpress/element";
 
 /**
  * External dependencies
@@ -122,7 +123,7 @@ class GalleryImage extends Component {
 
     /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
     <>
-				<img src={url} alt={alt} data-id={id} onClick={this.onSelectImage} onFocus={this.onSelectImage} onKeyDown={this.onRemoveImage} tabIndex="0" aria-label={ariaLabel} ref={this.bindContainer} />
+				<Img src={url} alt={alt} data-id={id} onClick={this.onSelectImage} onFocus={this.onSelectImage} onKeyDown={this.onRemoveImage} tabIndex="0" aria-label={ariaLabel} ref={this.bindContainer} />
 				{isBlobURL(url) && <Spinner />}
 			</>
     /* eslint-enable jsx-a11y/no-noninteractive-element-interactions */
